@@ -1,0 +1,18 @@
+Range_query(query W, R-tree node n):
+  If n is not a leaf node
+    For each index entry e in n such that e.MBR intersects W
+        visit node n’ pointed by e.ptr
+        Range_query(W, n)
+  If n is a leaf
+    For each index entry e in n such that e.MBR intersects W
+        visit object o pointed by e.object-id
+        if o intersects W, report o
+
+
+Range_query (W, root)
+    Range_query (W, R6)
+        Range_query (W, R3)
+            return i,j,l
+    Range_query (W, R7)
+        return
+
